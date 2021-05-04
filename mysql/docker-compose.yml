@@ -1,0 +1,12 @@
+version: '3'
+services:
+    mysql:
+      image: mysql:5.6
+      restart: always
+      ports:
+        - 9001:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: 123456
+      volumes:
+         - ./mysql.conf:/etc/mysql/conf.d/custom.cnf
+         - ../container/mysql/data:/var/lib/mysql

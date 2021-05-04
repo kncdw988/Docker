@@ -1,0 +1,13 @@
+version: '3'
+services:
+    redis:
+      image: redis:6
+      container_name: redis
+      restart: always
+      command: ['redis-server', '/etc/redis/redis.conf']
+      ports:
+      - 9002:6379
+      volumes:
+      - ../container/redis/data:/data
+      - ./redis.conf:/etc/redis/redis.conf
+      - ./user.acl:/etc/redis/users.acl
